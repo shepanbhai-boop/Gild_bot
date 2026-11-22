@@ -15,7 +15,7 @@ def run_flask():
 threading.Thread(target=run_flask).start()
 
 TOKEN = os.environ.get("BOT_TOKEN")
-GUILD_ID = "3107304486"
+GUILD_ID = os.environ.get("GUILD_ID", "3107304486")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Bot Online! /guild_info likho")
@@ -25,4 +25,5 @@ async def guild_info(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 bot_app = Application.builder().token(TOKEN).build()
 bot_app.add_handler(CommandHandler("start", start))
-bot_app.add_handler(CommandHandl
+bot_app.add_handler(CommandHandler("guild_info", guild_info))
+bot_app.run_polling()
