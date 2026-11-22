@@ -25,5 +25,4 @@ async def guild_info(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 bot_app = Application.builder().token(TOKEN).build()
 bot_app.add_handler(CommandHandler("start", start))
-bot_app.add_handler(CommandHandler("guild_info", guild_info))
-bot_app.run_polling()
+bot_app.add_handler(CommandHandl
